@@ -59,25 +59,45 @@ Class Main extends Pluginbase implements Listener{
     
          if($player->hasPermission("Chat.Spieler")) {
             $player->setNameTag("Â§e" . $NAME);
-            $event->setJoinMessage("Â§7Der Spieler Â§e" .$NAME. "Â§7 hat FFA betreten!");
+            $event->setJoinMessage("Â§7Der Spieler Â§e" .$NAME. "Â§7 hat 1vs1 betreten!");
         }
         if($player->hasPermission("Chat.Premium")) {
             $player->setNameTag("Â§6" . $NAME);     
-            $event->setJoinMessage("Â§7Der Premium Â§6" .$NAME. "Â§7 hat FFA betreten!");       
+            $event->setJoinMessage("Â§7Der Premium Â§6" .$NAME. "Â§7 hat 1vs1 betreten!");       
         }
         if($player->hasPermission("Chat.Supporter")) {
             $player->setNameTag("Â§9" . $NAME);    
-            $event->setJoinMessage("Â§7Der Supporter Â§9" .$NAME. "Â§7 hat FFA betreten!");          
+            $event->setJoinMessage("Â§7Der Supporter Â§9" .$NAME. "Â§7 hat 1vs1 betreten!");          
         }
         if($player->hasPermission("Chat.Moderator")) {
             $player->setNameTag("Â§c" . $NAME);
-            $event->setJoinMessage("Â§7Der Moderator Â§c" .$NAME. "Â§7 hat FFA betreten!");      
+            $event->setJoinMessage("Â§7Der Moderator Â§c" .$NAME. "Â§7 hat 1vs1 betreten!");      
         }
         if($player->hasPermission("Chat.Admin")) {
             $player->setNameTag("Â§4" . $NAME);
-            $event->setJoinMessage("Â§7Der Admin Â§4" .$NAME. "Â§7 hat FFA betreten!");   
+            $event->setJoinMessage("Â§7Der Admin Â§4" .$NAME. "Â§7 hat 1vs1 betreten!");   
         }
 }
-
+//LeaveMessages auch aus dem Lobby-Core
+public function OnQuit(PlayerQuitEvent $event){
+    $player = $event->getPlayer();
+    $NAME = $player->getName();
+    
+         if($player->hasPermission("Chat.Spieler")) {
+            $event->setQuitMessage("Â§7Der Spieler Â§e" .$NAME. "Â§7 hat 1vs1 verlassen!");
+        }
+        if($player->hasPermission("Chat.Premium")) {
+            $event->setQuitMessage("Â§7Der Premium Â§6" .$NAME. "Â§7 hat 1vs1 verlassen!");
+        }
+        if($player->hasPermission("Chat.Supporter")) {
+            $event->setQuitMessage("Â§7Der Supporter Â§9" .$NAME. "Â§7 hat 1vs1 verlassen!");
+        }
+        if($player->hasPermission("Chat.Moderator")) {
+            $event->setQuitMessage("Â§7Der Moderator Â§c" .$NAME. "Â§7 hat 1vs1 verlassen!");
+        }
+        if($player->hasPermission("Chat.Admin")) {
+            $event->setQuitMessage("Â§7Der Admin Â§4" .$NAME. "Â§7 hat 1vs1 verlassen!");
+        }
+}
 }
 }
