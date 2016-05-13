@@ -22,4 +22,11 @@ Class Main extends Pluginbase implements Listener{
     public function onDisable(){
         
     }
+    //wenn der Spieler auf das schild klickt..
+    public function onPlayerInteract(PlayerInteractEvent $event){
+	$b = $event->getBlock();
+        $player = $event->getPlayer();
+        if($b->getID() == 63 || $b->getID() == 68){
+                        }
+    }
 }
