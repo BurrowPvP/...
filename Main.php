@@ -101,7 +101,10 @@ public function OnQuit(PlayerQuitEvent $event){
             $event->setQuitMessage("Â§7Der Admin Â§4" .$NAME. "Â§7 hat 1vs1 verlassen!");
         }
 }
+ public function onPlayerDeathEvent(PlayerDeathEvent $event){
+ 	//deathevent
+ }
     private function getKit(Player $player){
-        
+        //spieler kriegt kit 
     }
 }
