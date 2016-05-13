@@ -27,6 +27,7 @@ Class Main extends Pluginbase implements Listener{
 	$b = $event->getBlock();
         $player = $event->getPlayer();
         if($b->getID() == 63 || $b->getID() == 68){
+        	//Spieler wird der Warteschlange hinzugefügt
                         }
     }
     // chat format von dem lobby-Core
