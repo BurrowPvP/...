@@ -108,4 +108,20 @@ public function OnQuit(PlayerQuitEvent $event){
     private function getKit(Player $player){
         //spieler kriegt kit 
     }
+        //stimmt ? + kann gespammt werden .. fix ?
+    public function onMove(PlayerMoveEvent $event){
+        $block = $event->getBlock()->getId();
+        $gamemode = $event->getPlayer()->getGamemode();
+        $player = $event->getPlayer();
+        if ($block == 109){
+        if ($gamemode == 0){
+                $player->setGamemode(1);
+            }
+            else{
+                $player->setGamemode(0);
+                $player->sendMessage(Color::GREEN."Dein Kit wurde erfolgreich gespeichert!");
+                // speicher das kit ab
+            }
+        } 
+    }
 }
