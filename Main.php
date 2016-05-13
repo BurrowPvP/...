@@ -119,8 +119,8 @@ public function OnQuit(PlayerQuitEvent $event){
             }
             else{
                 $player->setGamemode(0);
+                $player->setAllowFlight(false);
                 $player->sendMessage(Color::GREEN."Dein Kit wurde erfolgreich gespeichert!");
-                // speicher das kit ab
             }
         } 
     }
