@@ -14,3 +14,4 @@ Class Main extends Pluginbase implements Listener{
         $this->getServer()->getPluginManager()->registerEvents($this, $this); 
     }
 }
+
