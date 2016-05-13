@@ -52,6 +52,7 @@ Class Main extends Pluginbase implements Listener{
         if($player->hasPermission("Chat.Admin")) {
             $event->setFormat( "Â§4" . $player->getName() . " Â§8Â»Â§7 " .$nachricht);       
         }
+    }
         // nametags & JoinMessages aus dem Lobby-Core
     public function onJoin(PlayerJoinEvent $event){
     
@@ -100,5 +101,7 @@ public function OnQuit(PlayerQuitEvent $event){
             $event->setQuitMessage("Â§7Der Admin Â§4" .$NAME. "Â§7 hat 1vs1 verlassen!");
         }
 }
-}
+    private function getKit(Player $player){
+        
+    }
 }
