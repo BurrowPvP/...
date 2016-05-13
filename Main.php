@@ -29,7 +29,7 @@ Class Main extends Pluginbase implements Listener{
         if($b->getID() == 63 || $b->getID() == 68){
                         }
     }
-    // chat format von dem lobby-core
+    // chat format von dem lobby-Core
     public function onChat(PlayerChatEvent $event){
     
     $player = $event->getPlayer();
@@ -51,6 +51,33 @@ Class Main extends Pluginbase implements Listener{
         if($player->hasPermission("Chat.Admin")) {
             $event->setFormat( "Â§4" . $player->getName() . " Â§8Â»Â§7 " .$nachricht);       
         }
+        // nametags & JoinMessages aus dem Lobby-Core
+    public function onJoin(PlayerJoinEvent $event){
+    
+    $player = $event->getPlayer();
+    $NAME = $player->getName();
+    
+         if($player->hasPermission("Chat.Spieler")) {
+            $player->setNameTag("Â§e" . $NAME);
+            $event->setJoinMessage("Â§7Der Spieler Â§e" .$NAME. "Â§7 hat FFA betreten!");
+        }
+        if($player->hasPermission("Chat.Premium")) {
+            $player->setNameTag("Â§6" . $NAME);     
+            $event->setJoinMessage("Â§7Der Premium Â§6" .$NAME. "Â§7 hat FFA betreten!");       
+        }
+        if($player->hasPermission("Chat.Supporter")) {
+            $player->setNameTag("Â§9" . $NAME);    
+            $event->setJoinMessage("Â§7Der Supporter Â§9" .$NAME. "Â§7 hat FFA betreten!");          
+        }
+        if($player->hasPermission("Chat.Moderator")) {
+            $player->setNameTag("Â§c" . $NAME);
+            $event->setJoinMessage("Â§7Der Moderator Â§c" .$NAME. "Â§7 hat FFA betreten!");      
+        }
+        if($player->hasPermission("Chat.Admin")) {
+            $player->setNameTag("Â§4" . $NAME);
+            $event->setJoinMessage("Â§7Der Admin Â§4" .$NAME. "Â§7 hat FFA betreten!");   
+        }
+}
 
 }
 }
