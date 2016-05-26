@@ -11,6 +11,8 @@
 namespace onevsone;
                              
 Class Main extends Pluginbase implements Listener{
+	
+    public $save = array();
     
     public function onLoad(){
         $this->getLogger()->info(TextFormat::YELLOW."Kits-Saving");
@@ -106,7 +108,10 @@ public function OnQuit(PlayerQuitEvent $event){
  	//deathevent
  }
     private function getKit(Player $player){
-        //spieler kriegt kit 
+        if (isset($this->save[$player->getName()])) {
+		$player->getInventory()->setContents($this->save[$player->getName()][0]);
+		$player->getInventory()->setArmorContents($this->save[$player->getName()][1]);
+		unset($this->save[$player->getName()]);
     }
         //stimmt ? + kann gespammt werden .. fix ?
     public function onMove(PlayerMoveEvent $event){
@@ -116,10 +121,12 @@ public function OnQuit(PlayerQuitEvent $event){
         if ($block == 109){
         if ($gamemode == 0){
                 $player->setGamemode(1);
+                $player->setAllowFlight(false);
             }
             else{
                 $player->setGamemode(0);
-                $player->setAllowFlight(false);
+                $this->save[$player->getName()][1] = $player->getInventory()->getArmorContents();
+		$this->save[$player->getName()][0] = $player->getInventory()->getContents();
                 $player->sendMessage(Color::GREEN."Dein Kit wurde erfolgreich gespeichert!");
             }
         } 
